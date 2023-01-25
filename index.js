@@ -40,15 +40,15 @@ const handleFileAsync = async (xlsFile) => {
 // Function to grab values required for DPP metadata
 
 const grabValues = (data, valObj) => {
-    valObj.seriesTitle = data.B1.v;
-    valObj.programmeTitle = data.B3.v;
-    valObj.episodeTitle = data.B5.v;
-    valObj.prodNumber = data.B7.v;
-    valObj.synopsis = data.B9.v;
-    valObj.originator = data.B11.v;
-    valObj.copyYear = data.B13.v;
-    valObj.genre = data.B15.v;
-    valObj.distributor = data.B17.v;
-    valObj.email = data.B19.v;
-    valObj.phoneNum = data.B20.v;
+    valObj.seriesTitle = data.B1.v.trim();
+    valObj.programmeTitle = data.B3.v.trim();
+    valObj.episodeTitle = data.B5.v.trim();
+    valObj.prodNumber = data.B7.v.trim();
+    valObj.synopsis = data.B9.v.trim();
+    valObj.originator = data.B11.v.trim();
+    valObj.copyYear = data.B13.v.toString().trim();
+    valObj.genre = data.B15.v.trim();
+    valObj.distributor = data.B17.v.trim();
+    valObj.email = data.B19.v.trim();
+    valObj.phoneNum = data.B20.v.toString().trim();
 }
