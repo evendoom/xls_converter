@@ -7,6 +7,13 @@
     <title>xml_converter</title>
 </head>
 <body>
-    <h1>Hello</h1>
+    <input type="file" id="fileInpt" accept=".xls, .xlsx">
+    <button id="submitBtn">Process!</button>
 </body>
+
+<!-- SheetJS => use the latest version -->
+<script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<!-- Internal Script -->
+<script type="module" src="index.js"></script>
 </html>
