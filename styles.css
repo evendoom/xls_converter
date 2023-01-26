@@ -36,3 +36,21 @@
 .process-btn {
     margin-top: 2%;
 }
+
+.confirm-btn {
+    display: inline-block;
+    width: 200px;
+}
+
+.btn.btn-danger {
+    margin-left: 2%;
+    background-color: rgb(155, 0, 0);
+    color: rgb(233, 231, 231);
+    border: none; 
+}
+
+.btn.btn-danger:hover {
+    background-color: rgb(182, 3, 3);
+    color: rgb(233, 231, 231);
+    border: none; 
+}
