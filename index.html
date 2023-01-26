@@ -4,15 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Halfmoon CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/css/halfmoon-variables.min.css" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
     <title>xml_converter</title>
 </head>
-<body>
-    <input type="file" id="fileInpt" accept=".xls, .xlsx">
-    <button id="submitBtn">Process!</button>
+<body class="bg-dark text-white">
+    <div class="page-wrapper">
+        <div class="content-wrapper">
+            <div class="container-fluid main-ctn">
+                <div class="custom-file">
+                    <input type="file" id="fileInpt" accept=".xls, .xlsx">
+                    <label for="fileInpt">Import XML</label>
+                </div>
+                <button class="btn btn-success process-btn" type="button" id="submitBtn">Process</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 <!-- SheetJS => use the latest version -->
 <script lang="javascript" src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+
+<!-- Halfmoon JS -->
+<script src="https://cdn.jsdelivr.net/npm/halfmoon@1.1.1/js/halfmoon.min.js"></script>
 
 <!-- Internal Script -->
 <script type="module" src="index.js"></script>
