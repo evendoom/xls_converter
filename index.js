@@ -78,6 +78,87 @@ const changeDom = (htmlContainer) => {
     // Event listener for confirm button
     let yazQueen = document.querySelector('.save');
     yazQueen.addEventListener('click', () => {
-        console.log('hey sexy!');
-    })
+        let xmlData = genXML(dppValues);
+        saveFile(xmlData, dppValues);
+    });
+}
+
+// Function to generate an XML
+const genXML = (vals) => {
+    let xmlData = `
+        <Programme xmlns="http://www.digitalproductionpartnership.co.uk/ns/as11/2013">
+        <Editorial>
+        <SeriesTitle>${vals.seriesTitle}</SeriesTitle>
+        <ProgrammeTitle>${vals.programmeTitle}</ProgrammeTitle>
+        <EpisodeTitleNumber>${vals.episodeTitle}</EpisodeTitleNumber>
+        <ProductionNumber>${vals.prodNumber}</ProductionNumber>
+        <Synopsis>${vals.synopsis}</Synopsis>
+        <Originator>${vals.originator}</Originator>
+        <CopyrightYear>${vals.copyYear}</CopyrightYear>
+        <Genre>${vals.genre}</Genre>
+        <Distributor>${vals.distributor}</Distributor>
+        </Editorial>
+        <Technical>
+        <ShimName>UK DPP HD</ShimName>
+        <ShimVersion>1.1</ShimVersion>
+        <Video>
+        <VideoBitRate unit="Mbps">100</VideoBitRate>
+        <VideoCodec>ProRes</VideoCodec>
+        <VideoCodecParameters>High 4:2:2 Intra@L4.1</VideoCodecParameters>
+        <PictureFormat>1080i/50</PictureFormat>
+        <AFD>10</AFD>
+        <PictureRatio>16:9 (1.78:1)</PictureRatio>
+        <ThreeD>false</ThreeD>
+        <ProductPlacement>false</ProductPlacement>
+        <PSEPass>Yes</PSEPass>
+        <Manufacturer>Harding</Manufacturer>
+        <Version>3.4</Version>
+        </Video>
+        <Audio>
+        <AudioSamplingFrequency unit="kHz">48</AudioSamplingFrequency>
+        <AudioBitDepth>24</AudioBitDepth>
+        <AudioCodecParameters>Uncompressed PCM</AudioCodecParameters>
+        <RDD6DolbyVANC></RDD6DolbyVANC>
+        <AudioTrackLayout></AudioTrackLayout>
+        <PrimaryAudioLanguage>eng</PrimaryAudioLanguage>
+        <SecondaryLanguage>zxx</SecondaryLanguage>
+        <TertiaryLanguage>zxx</TertiaryLanguage>
+        <AudioLoudnessStandard>EBU 128</AudioLoudnessStandard>
+        </Audio>
+        <Timecodes>
+        <LineUpStart>09:59:30:00</LineUpStart>
+        <IdentClockStart>09:59:50:00</IdentClockStart>
+        <Parts>
+        </Parts>
+        </Timecodes>
+        <AccessServices>
+        <AudioDescriptionPresent>false</AudioDescriptionPresent>
+        <ClosedCaptionsPresent>false</ClosedCaptionsPresent>
+        <OpenCaptionsPresent>false</OpenCaptionsPresent>
+        <SigningPresent>No</SigningPresent>
+        </AccessServices>
+        <Additional>
+        <CompletionDate></CompletionDate>
+        <TextlessElementsExist>true</TextlessElementsExist>
+        <ProgrammeHasText>true</ProgrammeHasText>
+        <ProgrammeTextLanguage>eng</ProgrammeTextLanguage>
+        <AssociatedMediaFilename></AssociatedMediaFilename>
+        </Additional>
+        <ContactInformation>
+        <ContactEmail>${vals.email}</ContactEmail>
+        <ContactTelephoneNumber>${vals.phoneNum}</ContactTelephoneNumber>
+        </ContactInformation>
+        </Technical>
+        </Programme>
+    `
+    return xmlData;
+}
+
+// Function to save XML to local disc
+const saveFile = (file, dppValues) => {
+    let bb = new Blob([file], { type: 'text/xml' });
+    let anchor = document.createElement('a');
+    anchor.download = `${dppValues.seriesTitle}-${dppValues.episodeTitle}.xml`;
+    anchor.href = window.URL.createObjectURL(bb);
+    anchor.click();
 }

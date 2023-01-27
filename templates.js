@@ -16,8 +16,7 @@ export const domTemplates = {
         <p>Is this correct?</p>
         <div class="buttons">
             <button class="btn btn-success confirm-btn save" type="button" id="submitBtn">Yazzz Queen!</button>
-            <button class="btn btn-danger confirm-btn goBack" type="button" id="submitBtn">NEIN! NEIN! NEIN!</button>
         </div>
     </div>
-    `
+    `,
 }
