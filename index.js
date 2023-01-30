@@ -39,10 +39,10 @@ const handleFileAsync = async (xlsFile) => {
     
     grabValues(worksheet, dppValues);
     changeDom(htmlContainer);
+    cleanNasties(dppValues); // needs to come last to avoid `&amp;` on HTML page
 }
 
 // Function to grab values required for DPP metadata
-
 const grabValues = (data, valObj) => {
     valObj.seriesTitle = data.B1.v.trim();
     valObj.programmeTitle = data.B3.v.trim();
@@ -161,4 +161,12 @@ const saveFile = (file, dppValues) => {
     anchor.download = `${dppValues.seriesTitle}-${dppValues.episodeTitle}.xml`;
     anchor.href = window.URL.createObjectURL(bb);
     anchor.click();
+}
+
+// Function to remove weird characters (&) from synopsis
+const cleanNasties = (obj) => {
+    
+    for (let key in obj) {
+        obj[key] = obj[key].replaceAll(`&`, `&amp;`);
+    }
 }
