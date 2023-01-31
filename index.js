@@ -163,10 +163,11 @@ const saveFile = (file, dppValues) => {
     anchor.click();
 }
 
-// Function to remove weird characters (&) from synopsis
+// Function to remove weird characters (& and ’) from synopsis
 const cleanNasties = (obj) => {
     
     for (let key in obj) {
         obj[key] = obj[key].replaceAll(`&`, `&amp;`);
+        obj[key] = obj[key].replaceAll(`’`, `'`);
     }
 }
