@@ -80,6 +80,7 @@ const changeDom = (htmlContainer) => {
     yazQueen.addEventListener('click', () => {
         let xmlData = genXML(dppValues);
         saveFile(xmlData, dppValues);
+        fileSaved(htmlContainer, `${dppValues.seriesTitle}-${dppValues.episodeTitle}`);
     });
 }
 
@@ -170,4 +171,18 @@ const cleanNasties = (obj) => {
         obj[key] = obj[key].replaceAll(`&`, `&amp;`);
         obj[key] = obj[key].replaceAll(`’`, `'`);
     }
+}
+
+// Function to display HTML page after XML is saved
+const fileSaved = (htmlContainer, filename) => {
+
+    htmlContainer.innerHTML = domTemplates.beautiful;
+
+    // Get Span HTML element
+
+    let span = document.getElementById('filename');
+
+    // Update Span content
+    span.innerText = filename;
+
 }

@@ -19,4 +19,12 @@ export const domTemplates = {
         </div>
     </div>
     `,
+    beautiful: `
+    <div class="main-ctn">
+        <h1>Beautiful!</h1>
+        <h3>Check your 'downloads' folder:</h3>
+        <h5><span id="filename"></span>.xml</h5>
+        <a href="" class="btn btn-success" type="button">Back to Main Page</a>
+    </div>
+    `
 }
