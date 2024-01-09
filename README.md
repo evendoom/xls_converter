@@ -1,2 +1,1 @@
-To do list:
-1 - Import button on main page changes color after loading a file
+Webapp that parses info from .xls sheet and converts onto AS-11 compatible XML.
